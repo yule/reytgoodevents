@@ -3,7 +3,8 @@ tagline: "Roll Dice. Make Friends. Have Fun."
 description: >-
   A gaming day for everyone in Barnsley — board games, Dungeons & Dragons,
   Blood on the Clocktower, mini painting and friendly tournaments.
-url: https://reytgoodevents.co.uk
+url: https://yule.github.io
+baseurl: /reytgoodevents
 keywords: "board games,yorkshire,barnsley,geek meet,dungeons and dragons,blood on the clocktower,tabletop gaming,tournaments,family friendly,reyt good events"
 
 # --- Organiser -----------------------------------------------------------

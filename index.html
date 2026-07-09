@@ -8,7 +8,7 @@ description: >-
 
 <!-- Hero -->
 <section class="hero" aria-label="Welcome">
-  <img class="hero-bg" src="/assets/images/banner.jpeg"
+  <img class="hero-bg" src="{{ site.baseurl }}/assets/images/banner.jpeg"
        alt="The Great Yorkshire Geek Meet — a gaming day for everyone, {{ site.event.date_display }}, {{ site.event.time_display }}, {{ site.event.venue_name }}. Adults {{ site.event.price_adult }}, under 12s {{ site.event.price_under12 }}.">
 </section>
 
@@ -17,8 +17,8 @@ description: >-
     <p class="tagline">{{ site.tagline }}</p>
     <p>Discover board games, adventures, tournaments, mini painting and social gaming in a friendly and welcoming atmosphere. Whether you're a lifelong gamer or have never rolled a dice before, there's something here for everyone.</p>
     <div class="hero-actions">
-      <a href="/tickets.html" class="btn btn-primary">Get Tickets</a>
-      <a href="/whats-on.html" class="btn btn-outline">See What's On</a>
+      <a href="{{ site.baseurl }}/tickets.html" class="btn btn-primary">Get Tickets</a>
+      <a href="{{ site.baseurl }}/whats-on.html" class="btn btn-outline">See What's On</a>
     </div>
   </div>
 </div>
@@ -96,7 +96,7 @@ description: >-
         </div>
       </div>
     </div>
-    <p class="center mt-lg"><a href="/whats-on.html" class="btn btn-bordered">Full Details of What's On</a></p>
+    <p class="center mt-lg"><a href="{{ site.baseurl }}/whats-on.html" class="btn btn-bordered">Full Details of What's On</a></p>
   </div>
 </section>
 
@@ -135,9 +135,9 @@ description: >-
 <!-- Host -->
 <section class="section section-cream">
   <div class="container center">
-    <img src="/assets/images/mascot.jpg" alt="{{ site.event.name }} mascot" width="110" height="110" style="border-radius:50%; margin: 0 auto 1.25rem;">
+    <img src="{{ site.baseurl }}/assets/images/mascot.jpg" alt="{{ site.event.name }} mascot" width="110" height="110" style="border-radius:50%; margin: 0 auto 1.25rem;">
     <h2>Hosted by {{ site.organiser.name }}</h2>
     <p>{{ site.organiser.tagline }}</p>
-    <a href="/tickets.html" class="btn btn-primary mt-lg">Get Your Tickets</a>
+    <a href="{{ site.baseurl }}/tickets.html" class="btn btn-primary mt-lg">Get Your Tickets</a>
   </div>
 </section>

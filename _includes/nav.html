@@ -1,7 +1,7 @@
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="/assets/images/mascot.jpg" alt="" width="40" height="40">
+    <a href="{{ site.baseurl }}/" class="nav-logo">
+      <img src="{{ site.baseurl }}/assets/images/mascot.jpg" alt="" width="40" height="40">
       <span>Yorkshire Geek Meet</span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -12,12 +12,12 @@
       </svg>
     </button>
     <ul class="nav-links">
-      <li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
-      <li><a href="/whats-on.html" {% if page.url == '/whats-on.html' %}class="active"{% endif %}>What's On</a></li>
-      <li><a href="/tickets.html" {% if page.url == '/tickets.html' %}class="active"{% endif %}>Tickets</a></li>
-      <li><a href="/location.html" {% if page.url == '/location.html' %}class="active"{% endif %}>Location</a></li>
-      <li><a href="/contact.html" {% if page.url == '/contact.html' %}class="active"{% endif %}>Contact</a></li>
-      <li><a href="/tickets.html" class="nav-cta">Get Tickets</a></li>
+      <li><a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+      <li><a href="{{ site.baseurl }}/whats-on.html" {% if page.url == '/whats-on.html' %}class="active"{% endif %}>What's On</a></li>
+      <li><a href="{{ site.baseurl }}/tickets.html" {% if page.url == '/tickets.html' %}class="active"{% endif %}>Tickets</a></li>
+      <li><a href="{{ site.baseurl }}/location.html" {% if page.url == '/location.html' %}class="active"{% endif %}>Location</a></li>
+      <li><a href="{{ site.baseurl }}/contact.html" {% if page.url == '/contact.html' %}class="active"{% endif %}>Contact</a></li>
+      <li><a href="{{ site.baseurl }}/tickets.html" class="nav-cta">Get Tickets</a></li>
     </ul>
   </div>
 </nav>
