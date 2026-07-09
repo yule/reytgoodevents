@@ -1,0 +1,143 @@
+---
+layout: default
+title: The Great Yorkshire Geek Meet – A Gaming Day For Everyone
+description: >-
+  Board games, Dungeons & Dragons, Blood on the Clocktower, mini painting and
+  friendly tournaments at the Griffin Suite, Shaw Lane Cricket Club, Barnsley.
+---
+
+<!-- Hero -->
+<section class="hero" aria-label="Welcome">
+  <img class="hero-bg" src="/assets/images/banner.jpeg"
+       alt="The Great Yorkshire Geek Meet — a gaming day for everyone, {{ site.event.date_display }}, {{ site.event.time_display }}, {{ site.event.venue_name }}. Adults {{ site.event.price_adult }}, under 12s {{ site.event.price_under12 }}.">
+</section>
+
+<div class="hero-intro">
+  <div class="container">
+    <p class="tagline">{{ site.tagline }}</p>
+    <p>Discover board games, adventures, tournaments, mini painting and social gaming in a friendly and welcoming atmosphere. Whether you're a lifelong gamer or have never rolled a dice before, there's something here for everyone.</p>
+    <div class="hero-actions">
+      <a href="/tickets.html" class="btn btn-primary">Get Tickets</a>
+      <a href="/whats-on.html" class="btn btn-outline">See What's On</a>
+    </div>
+  </div>
+</div>
+
+<!-- Quick facts -->
+<section class="facts-strip">
+  <div class="facts-grid">
+    <div class="fact">
+      <span class="fact-label">Date</span>
+      <span class="fact-value">{{ site.event.date_display }}</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Time</span>
+      <span class="fact-value">{{ site.event.time_display }}</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Venue</span>
+      <span class="fact-value">{{ site.event.venue_name }}</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Adult Ticket</span>
+      <span class="fact-value">{{ site.event.price_adult }} &middot; Under 12s {{ site.event.price_under12 }}</span>
+    </div>
+  </div>
+</section>
+
+<!-- Activities preview -->
+<section class="section" id="whats-on">
+  <div class="container">
+    <div class="section-head">
+      <h2>Lots to enjoy</h2>
+      <p>A full day of tabletop gaming, painting and social fun for all ages and experience levels.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🎲</div>
+        <div class="card-body">
+          <h3>Board Games</h3>
+          <p>Drop in and play, or grab a table with friends — bring your own or try something new from the library.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🐉</div>
+        <div class="card-body">
+          <h3>Dungeons &amp; Dragons</h3>
+          <p>Join a one-shot adventure run by our game masters. Advance booking gets you early access to reserve a seat.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🕰</div>
+        <div class="card-body">
+          <h3>Blood on the Clocktower</h3>
+          <p>Social deduction, betrayal and deduction — reserve a session in advance for the best chance of a seat.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <div class="card-body">
+          <h3>Mini Painting</h3>
+          <p>Pick up a brush and give a miniature some colour, with help on hand if you're new to painting.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <div class="card-body">
+          <h3>Friendly Tournaments</h3>
+          <p>Test your skills in casual, welcoming competitive play — all abilities welcome.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛍</div>
+        <div class="card-body">
+          <h3>Bring &amp; Buy</h3>
+          <p>Buy, sell and trade games, minis and gaming gear with other attendees.</p>
+        </div>
+      </div>
+    </div>
+    <p class="center mt-lg"><a href="/whats-on.html" class="btn btn-bordered">Full Details of What's On</a></p>
+  </div>
+</section>
+
+<!-- Everyone welcome -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-head">
+      <h2>Everyone welcome</h2>
+      <p>The event is family friendly throughout the day, with social and strategy gaming continuing into the evening.</p>
+    </div>
+    <div class="badges-row">
+      <div class="badge-item">
+        <div class="badge-icon">🧩</div>
+        <h4>Beginners Welcome</h4>
+        <p>Never rolled a dice before? You'll fit right in.</p>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">🙌</div>
+        <h4>No Experience Needed</h4>
+        <p>Just bring your curiosity — we'll help with the rest.</p>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">🏳️‍🌈</div>
+        <h4>Family Friendly &amp; Inclusive</h4>
+        <p>A welcoming space for everyone, all day long.</p>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">♿</div>
+        <h4>Excellent Disabled Access</h4>
+        <p>With free on-site parking for all attendees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Host -->
+<section class="section section-cream">
+  <div class="container center">
+    <img src="/assets/images/mascot.jpg" alt="{{ site.event.name }} mascot" width="110" height="110" style="border-radius:50%; margin: 0 auto 1.25rem;">
+    <h2>Hosted by {{ site.organiser.name }}</h2>
+    <p>{{ site.organiser.tagline }}</p>
+    <a href="/tickets.html" class="btn btn-primary mt-lg">Get Your Tickets</a>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+{% if site.announcement_enabled %}
+<div class="announcement-banner" role="alert" id="announcement-banner">
+  <span class="announcement-text">{{ site.announcement_message }}</span>
+  <button class="announcement-close" aria-label="Dismiss announcement" onclick="dismissBanner()">&#10005;</button>
+</div>
+{% endif %}

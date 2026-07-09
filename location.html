@@ -1,0 +1,62 @@
+---
+layout: default
+title: Location – The Great Yorkshire Geek Meet
+description: >-
+  Griffin Suite, Shaw Lane Cricket Club, Shaw Lane, Barnsley, S70 6HZ.
+  Excellent disabled access and free on-site parking.
+---
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Location</h1>
+    <p>{{ site.event.venue_name }}</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="location-grid">
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q={{ site.event.map_query | url_encode }}&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map to {{ site.event.venue_name }}">
+        </iframe>
+      </div>
+      <div>
+        <h3>Address</h3>
+        <p>
+          {{ site.event.venue_name }}<br>
+          {{ site.event.address_line1 }}<br>
+          {{ site.event.address_line2 }}<br>
+          {{ site.event.postcode }}
+        </p>
+        <h3>Getting there</h3>
+        <ul style="padding-left: 1.2rem; color: var(--text-muted);">
+          <li>Free parking is available on site.</li>
+          <li>The Griffin Suite has excellent disabled access.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container center" style="max-width:640px; margin:0 auto;">
+    <h2>Accessibility</h2>
+    <div class="badges-row">
+      <div class="badge-item">
+        <div class="badge-icon">♿</div>
+        <h4>Excellent Disabled Access</h4>
+        <p>The venue is fully accessible throughout.</p>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">🚗</div>
+        <h4>Free Parking</h4>
+        <p>On-site parking is free for all attendees.</p>
+      </div>
+    </div>
+  </div>
+</section>
