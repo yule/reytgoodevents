@@ -1,11 +1,12 @@
-title: The Great Yorkshire Geek Meet
-tagline: "Roll Dice. Make Friends. Have Fun."
+title: Reyt Good Events
+tagline: "Great Days Out Start Here"
 description: >-
-  A gaming day for everyone in Barnsley — board games, Dungeons & Dragons,
-  Blood on the Clocktower, mini painting and friendly tournaments.
+  Friendly hobby and gaming events where everyone is welcome. Discover games,
+  meet amazing people, explore independent traders and enjoy unforgettable
+  days out across Yorkshire.
 url: https://yule.github.io
 baseurl: /reytgoodevents
-keywords: "board games,yorkshire,barnsley,geek meet,dungeons and dragons,blood on the clocktower,tabletop gaming,tournaments,family friendly,reyt good events"
+keywords: "yorkshire events,hobby events,gaming events,board games,barnsley,geek meet,dungeons and dragons,tabletop gaming,family friendly,reyt good events"
 
 # --- Organiser -----------------------------------------------------------
 # Named "organiser", not "host": Jekyll reserves `host` for `jekyll serve
@@ -13,29 +14,31 @@ keywords: "board games,yorkshire,barnsley,geek meet,dungeons and dragons,blood o
 # the serve address (e.g. "127.0.0.1") instead of this data.
 organiser:
   name: Reyt Good Events
-  tagline: Bringing people together through games, fun and community.
+  tagline: Bringing Yorkshire together through great events.
   facebook: https://www.facebook.com/reytgoodevents
   instagram: https://www.instagram.com/reytgoodevents
+  phone: "01226 757515"
+  email: reytgoodevents@gmail.com
 
-# --- Event details -----------------------------------------------------
-# Update these each year rather than hunting through the page HTML.
-event:
-  name: The Great Yorkshire Geek Meet
-  year: 2026
-  date_display: "Sunday 4th October 2026"
-  time_display: "12:30pm – 9:30pm"
-  venue_name: "Griffin Suite, Shaw Lane Cricket Club"
-  address_line1: "Shaw Lane"
-  address_line2: "Barnsley"
-  postcode: "S70 6HZ"
-  map_query: "Shaw Lane Cricket Club, Shaw Lane, Barnsley, S70 6HZ"
-  price_adult: "£5"
-  price_under12: "Free"
+# --- Events ----------------------------------------------------------------
+# Every event is one file in _events/ — add a new file there to add a new
+# event, no other changes needed. See _events/great-yorkshire-geek-meet.md
+# for the fields each event supports.
+collections:
+  events:
+    output: true
+    permalink: /events/:path/
 
-# Set this to your ticket/booking link when it goes live.
-# While it's blank, the Tickets page shows a "coming soon" notice instead
-# of a broken/dead button.
-booking_url: ""
+# Without this, Jekyll silently skips writing any collection document whose
+# `date` front matter is in the future — which is every upcoming event.
+future: true
+
+defaults:
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: event
 
 # Toggle a dismissible site-wide banner, e.g. for late availability notices.
 announcement_enabled: false

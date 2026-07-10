@@ -1,8 +1,10 @@
+{% assign upcoming_events = site.events | where: "status", "upcoming" | where: "live", true | sort: "date" %}
+{% assign next_event = upcoming_events | first %}
 <footer class="site-footer" role="contentinfo">
   <div class="footer-grid">
 
     <div class="footer-about">
-      <img src="{{ site.baseurl }}/assets/images/mascot.jpg" alt="{{ site.event.name }} mascot" class="footer-mascot">
+      <img src="{{ site.baseurl }}/assets/images/mascot.jpg" alt="{{ site.organiser.name }} mascot" class="footer-mascot">
       <h4>{{ site.organiser.name }}</h4>
       <p>{{ site.organiser.tagline }}</p>
       <div class="footer-social">
@@ -16,11 +18,10 @@
     </div>
 
     <div class="footer-col">
-      <h4>Visit Us</h4>
+      <h4>Contact Us</h4>
       <ul class="contact-list">
-        <li>{{ site.event.venue_name }}</li>
-        <li>{{ site.event.address_line1 }}, {{ site.event.address_line2 }}</li>
-        <li>{{ site.event.postcode }}</li>
+        <li><a href="tel:{{ site.organiser.phone | remove: ' ' }}">{{ site.organiser.phone }}</a></li>
+        <li><a href="mailto:{{ site.organiser.email }}">{{ site.organiser.email }}</a></li>
       </ul>
     </div>
 
@@ -28,15 +29,20 @@
       <h4>Quick Links</h4>
       <ul>
         <li><a href="{{ site.baseurl }}/">Home</a></li>
-        <li><a href="{{ site.baseurl }}/whats-on.html">What's On</a></li>
-        <li><a href="{{ site.baseurl }}/tickets.html">Tickets</a></li>
-        <li><a href="{{ site.baseurl }}/location.html">Location</a></li>
+        <li><a href="{{ site.baseurl }}/book-online.html">Book Online</a></li>
+        <li><a href="{{ site.baseurl }}/events/">Events</a></li>
+        {% if next_event %}
+        <li><a href="{{ next_event.url | relative_url }}">{{ next_event.name }}</a></li>
+        <li><a href="{{ next_event.url | relative_url }}#location">Plan Your Visit</a></li>
+        {% endif %}
+        <li><a href="{{ site.baseurl }}/traders.html">Traders</a></li>
+        <li><a href="{{ site.baseurl }}/about.html">About</a></li>
         <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
       </ul>
     </div>
 
   </div>
   <div class="footer-bottom">
-    <span>&copy; {{ site.event.year }} {{ site.event.name }}. Hosted by {{ site.organiser.name }}.</span>
+    <span>&copy; {{ 'now' | date: "%Y" }} {{ site.organiser.name }}. All rights reserved.</span>
   </div>
 </footer>

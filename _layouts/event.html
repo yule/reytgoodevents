@@ -1,0 +1,255 @@
+---
+layout: default
+---
+<section class="hero" aria-label="{{ page.name }}">
+  <img class="hero-bg" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.name }}">
+</section>
+
+<div class="hero-intro">
+  <div class="container">
+    <p class="tagline">{{ page.name }}</p>
+    <p>{{ page.summary }}</p>
+    <div class="hero-actions">
+      <a href="#tickets" class="btn btn-primary">Book Tickets</a>
+      <a href="#location" class="btn btn-outline">Plan Your Visit</a>
+    </div>
+  </div>
+</div>
+
+<section class="facts-strip">
+  <div class="facts-grid">
+    <div class="fact">
+      <span class="fact-label">Date</span>
+      <span class="fact-value">{{ page.date_display }}</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Time</span>
+      <span class="fact-value">{{ page.time_display }}</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Venue</span>
+      <span class="fact-value">{{ page.venue_name }}</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Adult Ticket</span>
+      <span class="fact-value">{{ page.price_adult }} &middot; Under 12s {{ page.price_under12 }}</span>
+    </div>
+  </div>
+</section>
+
+{% if page.highlights %}
+<section class="section" style="padding-top:3rem; padding-bottom:3rem;">
+  <div class="container">
+    <div class="badges-row">
+      {% for h in page.highlights %}
+      <div class="badge-item">
+        <div class="badge-icon">{{ h.icon }}</div>
+        <h4>{{ h.name }}</h4>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.love_reasons %}
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-head">
+      <h2>Why People Love Reyt Good Events</h2>
+    </div>
+    <div class="cards-grid">
+      {% for reason in page.love_reasons %}
+      <div class="card">
+        <div class="card-icon">{{ reason.icon }}</div>
+        <div class="card-body">
+          <h3>{{ reason.name }}</h3>
+          <p>{{ reason.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% assign has_body = content | strip | size %}
+{% if has_body > 0 %}
+<section class="section">
+  <div class="container" style="max-width:760px; margin:0 auto;">
+    {{ content }}
+  </div>
+</section>
+{% endif %}
+
+<!-- What's On -->
+<section class="section{% if has_body == 0 %} section-cream{% endif %}" id="whats-on">
+  <div class="container">
+    <div class="section-head">
+      <h2>What's On</h2>
+      <p>A full day of tabletop gaming, painting and social fun for all ages and experience levels.</p>
+    </div>
+    <div class="cards-grid">
+      {% for activity in page.activities %}
+      <div class="card">
+        <div class="card-icon">{{ activity.icon }}</div>
+        <div class="card-body">
+          <h3>{{ activity.name }}</h3>
+          <p>{{ activity.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if page.sessions %}
+<!-- Sessions -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="cards-grid cards-grid--2col" style="max-width: 900px; margin: 0 auto;">
+      {% for session in page.sessions %}
+      <div class="card">
+        <div class="card-body">
+          {% if session.time_display %}<p class="eyebrow">{{ session.time_display }}</p>{% endif %}
+          <h3>{{ session.title }}</h3>
+          {% if session.blurb %}<p>{{ session.blurb }}</p>{% endif %}
+          {% if session.items %}
+          <ul class="checklist mt-lg">
+            {% for item in session.items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Tickets -->
+<section class="section" id="tickets">
+  <div class="container">
+    <div class="section-head">
+      <h2>Tickets</h2>
+      <p>{{ page.date_display }} &middot; {{ page.time_display }} &middot; {{ page.venue_name }}</p>
+    </div>
+    <div class="cards-grid cards-grid--2col" style="max-width: 760px; margin: 0 auto 3rem;">
+      <div class="ticket-panel">
+        <h3>Adult</h3>
+        <div class="ticket-price">{{ page.price_adult }}</div>
+        <p class="ticket-note">Full day admission for one adult.</p>
+      </div>
+      <div class="ticket-panel">
+        <h3>Under 12s</h3>
+        <div class="ticket-price">{{ page.price_under12 }}</div>
+        <p class="ticket-note">All children must be accompanied by an adult.</p>
+      </div>
+    </div>
+    <div class="center">
+      {% unless page.booking_url == "" or page.booking_url == nil %}
+        <a href="{{ page.booking_url }}" class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+      {% else %}
+        <span class="btn btn-muted">Online Booking Coming Soon</span>
+        <p class="ticket-note mt-lg">
+          Follow
+          <a href="{{ site.organiser.facebook }}" target="_blank" rel="noopener">Facebook</a>
+          or
+          <a href="{{ site.organiser.instagram }}" target="_blank" rel="noopener">Instagram</a>
+          for updates on when booking opens.
+        </p>
+      {% endunless %}
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="section section-cream" id="location">
+  <div class="container">
+    <div class="section-head">
+      <h2>Where to Find Us</h2>
+      {% if page.location_intro %}<p>{{ page.location_intro }}</p>{% else %}<p>{{ page.venue_name }}</p>{% endif %}
+    </div>
+    <div class="location-grid">
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q={{ page.map_query | url_encode }}&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map to {{ page.venue_name }}">
+        </iframe>
+      </div>
+      <div>
+        <h3>Venue Address</h3>
+        <p>
+          {{ page.venue_name }}<br>
+          {{ page.address_line1 }}<br>
+          {{ page.address_line2 }}<br>
+          {{ page.postcode }}
+        </p>
+        <div class="hero-actions" style="justify-content:flex-start; margin-top:1.5rem;">
+          <a href="#tickets" class="btn btn-primary">Book Tickets</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.map_query | url_encode }}" class="btn btn-bordered" target="_blank" rel="noopener">Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if page.getting_there %}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Getting There</h2>
+    </div>
+    <div class="cards-grid">
+      {% for way in page.getting_there %}
+      <div class="card">
+        <div class="card-icon">{{ way.icon }}</div>
+        <div class="card-body">
+          <h3>{{ way.name }}</h3>
+          <p>{{ way.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.top_tips %}
+<section class="section section-cream">
+  <div class="container center">
+    <div class="section-head">
+      <h2>Top Tips for a Reyt Good Day</h2>
+    </div>
+    <ul class="tips-list">
+      {% for tip in page.top_tips %}
+      <li>{{ tip }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="container center" style="max-width:640px; margin:0 auto;">
+    <h2>Accessibility</h2>
+    <div class="badges-row">
+      {% for a11y in page.accessibility %}
+      <div class="badge-item">
+        <div class="badge-icon">{{ a11y.icon }}</div>
+        <h4>{{ a11y.name }}</h4>
+        <p>{{ a11y.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<p class="center" style="padding: 0 1.5rem 3rem;">
+  <a href="{{ '/events/' | relative_url }}" class="btn btn-bordered">&larr; All Events</a>
+</p>

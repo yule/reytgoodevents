@@ -1,8 +1,10 @@
+{% assign upcoming_events = site.events | where: "status", "upcoming" | where: "live", true | sort: "date" %}
+{% assign next_event = upcoming_events | first %}
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="{{ site.baseurl }}/" class="nav-logo">
       <img src="{{ site.baseurl }}/assets/images/mascot.jpg" alt="" width="40" height="40">
-      <span>Yorkshire Geek Meet</span>
+      <span>Reyt Good Events</span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -13,11 +15,25 @@
     </button>
     <ul class="nav-links">
       <li><a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
-      <li><a href="{{ site.baseurl }}/whats-on.html" {% if page.url == '/whats-on.html' %}class="active"{% endif %}>What's On</a></li>
-      <li><a href="{{ site.baseurl }}/tickets.html" {% if page.url == '/tickets.html' %}class="active"{% endif %}>Tickets</a></li>
-      <li><a href="{{ site.baseurl }}/location.html" {% if page.url == '/location.html' %}class="active"{% endif %}>Location</a></li>
+      <li><a href="{{ site.baseurl }}/book-online.html" {% if page.url == '/book-online.html' %}class="active"{% endif %}>Book Online</a></li>
+      <li class="nav-dropdown">
+        <a href="{{ site.baseurl }}/events/" {% if page.url == '/events/' %}class="active"{% endif %}>Events</a>
+        <ul class="nav-dropdown-menu">
+          {% for event in upcoming_events %}
+          <li><a href="{{ event.url | relative_url }}">{{ event.name }}</a></li>
+          {% endfor %}
+          <li><a href="{{ site.baseurl }}/events/"><strong>All Events</strong></a></li>
+        </ul>
+      </li>
+      {% if next_event %}
+      <li><a href="{{ next_event.url | relative_url }}#location">Plan Your Visit</a></li>
+      {% endif %}
+      <li><a href="{{ site.baseurl }}/traders.html" {% if page.url == '/traders.html' %}class="active"{% endif %}>Traders</a></li>
+      <li><a href="{{ site.baseurl }}/about.html" {% if page.url == '/about.html' %}class="active"{% endif %}>About</a></li>
       <li><a href="{{ site.baseurl }}/contact.html" {% if page.url == '/contact.html' %}class="active"{% endif %}>Contact</a></li>
-      <li><a href="{{ site.baseurl }}/tickets.html" class="nav-cta">Get Tickets</a></li>
+      {% if next_event %}
+      <li><a href="{{ next_event.url | relative_url }}#tickets" class="nav-cta">Get Tickets</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>

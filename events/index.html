@@ -1,0 +1,66 @@
+---
+layout: default
+title: Events – Reyt Good Events
+description: >-
+  All upcoming and past Reyt Good Events days out across Yorkshire.
+---
+
+{% assign upcoming_events = site.events | where: "status", "upcoming" | where: "live", true | sort: "date" %}
+{% assign past_events = site.events | where: "status", "past" | where: "live", true | sort: "date" | reverse %}
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Events</h1>
+    <p>Great days out across Yorkshire — board games, traders, hobbies and more.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    {% if upcoming_events.size > 0 %}
+    <div class="section-head">
+      <h2>Upcoming Events</h2>
+    </div>
+    <div class="cards-grid">
+      {% for event in upcoming_events %}
+      <div class="card">
+        <img src="{{ event.image | relative_url }}" alt="{{ event.name }}" style="border-radius: var(--radius) var(--radius) 0 0; aspect-ratio: 16/9; object-fit: cover;">
+        <div class="card-body">
+          <h3>{{ event.name }}</h3>
+          <p>{{ event.date_display }} &middot; {{ event.venue_name }}</p>
+          <p>{{ event.summary }}</p>
+          <p class="mt-lg"><a href="{{ event.url | relative_url }}" class="btn btn-primary btn-sm">View Event Details</a></p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="center">No upcoming events right now — follow us on
+      <a href="{{ site.organiser.facebook }}" target="_blank" rel="noopener">Facebook</a>
+      or <a href="{{ site.organiser.instagram }}" target="_blank" rel="noopener">Instagram</a>
+      to hear about the next one first.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% if past_events.size > 0 %}
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-head">
+      <h2>Past Events</h2>
+    </div>
+    <div class="cards-grid">
+      {% for event in past_events %}
+      <div class="card">
+        <img src="{{ event.image | relative_url }}" alt="{{ event.name }}" style="border-radius: var(--radius) var(--radius) 0 0; aspect-ratio: 16/9; object-fit: cover;">
+        <div class="card-body">
+          <h3>{{ event.name }}</h3>
+          <p>{{ event.date_display }} &middot; {{ event.venue_name }}</p>
+          <p><a href="{{ event.url | relative_url }}" class="btn btn-bordered btn-sm">Look Back</a></p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

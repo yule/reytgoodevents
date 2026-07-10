@@ -1,0 +1,47 @@
+---
+layout: default
+title: Book Online – Reyt Good Events
+description: >-
+  Book tickets for upcoming Reyt Good Events days out across Yorkshire.
+---
+
+{% assign upcoming_events = site.events | where: "status", "upcoming" | where: "live", true | sort: "date" %}
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Book Online</h1>
+    <p>Tickets for every upcoming Reyt Good Events day out, in one place.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    {% if upcoming_events.size > 0 %}
+    <div class="cards-grid">
+      {% for event in upcoming_events %}
+      <div class="card">
+        <img src="{{ event.image | relative_url }}" alt="{{ event.name }}" style="border-radius: var(--radius) var(--radius) 0 0; aspect-ratio: 16/9; object-fit: cover;">
+        <div class="card-body">
+          <h3>{{ event.name }}</h3>
+          <p>{{ event.date_display }} &middot; {{ event.venue_name }}</p>
+          <p class="ticket-price" style="font-size:1.6rem;">{{ event.price_adult }} <small>adult &middot; under 12s {{ event.price_under12 }}</small></p>
+          <div class="hero-actions mt-lg" style="justify-content:flex-start;">
+            {% unless event.booking_url == "" or event.booking_url == nil %}
+              <a href="{{ event.booking_url }}" class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+            {% else %}
+              <span class="btn btn-muted">Coming Soon</span>
+            {% endunless %}
+            <a href="{{ event.url | relative_url }}" class="btn btn-bordered">Event Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="center">No events are open for booking right now — check back soon, or follow us on
+      <a href="{{ site.organiser.facebook }}" target="_blank" rel="noopener">Facebook</a>
+      or <a href="{{ site.organiser.instagram }}" target="_blank" rel="noopener">Instagram</a>
+      to hear about the next one first.</p>
+    {% endif %}
+  </div>
+</section>
