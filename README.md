@@ -81,9 +81,16 @@ One-time setup on GitHub:
 3. Under **Build and deployment → Source**, choose **Deploy from a branch**,
    then select the `main` branch and `/ (root)` folder.
 
-The site is served at the default GitHub Pages URL for this repo (no custom
-domain), e.g. `https://<username>.github.io/reytgoodevents/`. `_config.yml`'s
-`baseurl` is set to `/reytgoodevents` to match — update it if the repo is
-ever renamed.
+4. Under **Custom domain**, enter `reytgoodevents.co.uk` (the `CNAME` file in
+   this repo already sets this, so GitHub should pick it up automatically).
+   You'll need to point your domain's DNS at GitHub Pages — see
+   [GitHub's custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
+   for the required `A`/`ALIAS`/`CNAME` records.
+5. Once DNS has propagated, tick **Enforce HTTPS**.
+
+`_config.yml`'s `url` is set to `https://reytgoodevents.co.uk` and `baseurl`
+is empty to match serving from the domain root — if the custom domain is
+ever removed, `baseurl` would need to go back to `/reytgoodevents` (or
+whatever the repo is named) to match GitHub's default project-pages path.
 
 After that, every push to `main` republishes the site within a minute or two.
