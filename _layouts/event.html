@@ -149,7 +149,18 @@ layout: default
       </div>
     </div>
     <div class="center">
-      {% unless page.booking_url == "" or page.booking_url == nil %}
+      {% if page.eventbrite_id %}
+        <button type="button" id="eb-trigger-{{ page.eventbrite_id }}" class="btn btn-primary">Book Now</button>
+        <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+        <script type="text/javascript">
+          window.EBWidgets.createWidget({
+            widgetType: 'checkout',
+            eventId: '{{ page.eventbrite_id }}',
+            modal: true,
+            modalTriggerElementId: 'eb-trigger-{{ page.eventbrite_id }}'
+          });
+        </script>
+      {% elsif page.booking_url != "" and page.booking_url != nil %}
         <a href="{{ page.booking_url }}" class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
       {% else %}
         <span class="btn btn-muted">Online Booking Coming Soon</span>
@@ -160,7 +171,7 @@ layout: default
           <a href="{{ site.organiser.instagram }}" target="_blank" rel="noopener">Instagram</a>
           for updates on when booking opens.
         </p>
-      {% endunless %}
+      {% endif %}
     </div>
   </div>
 </section>

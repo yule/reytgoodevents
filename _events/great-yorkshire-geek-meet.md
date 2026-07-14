@@ -20,6 +20,7 @@ map_query: "Shaw Lane Sports Club, Shaw Lane, Barnsley, S70 6HZ"
 price_adult: "£5"
 price_under12: "Free"
 booking_url: ""
+eventbrite_id: "1993777621537"
 image: /assets/images/people-playing-games.avif
 image_alt: >-
   Friends and family playing board games together at a Reyt Good Events

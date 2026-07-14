@@ -26,17 +26,33 @@ description: >-
           <p>{{ event.date_display }} &middot; {{ event.venue_name }}</p>
           <p class="ticket-price" style="font-size:1.6rem;">{{ event.price_adult }} <small>adult &middot; under 12s {{ event.price_under12 }}</small></p>
           <div class="hero-actions mt-lg" style="justify-content:flex-start;">
-            {% unless event.booking_url == "" or event.booking_url == nil %}
+            {% if event.eventbrite_id %}
+              <button type="button" id="eb-trigger-{{ event.eventbrite_id }}" class="btn btn-primary">Book Now</button>
+            {% elsif event.booking_url != "" and event.booking_url != nil %}
               <a href="{{ event.booking_url }}" class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             {% else %}
               <span class="btn btn-muted">Coming Soon</span>
-            {% endunless %}
+            {% endif %}
             <a href="{{ event.url | relative_url }}" class="btn btn-bordered">Event Details</a>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
+    {% assign eventbrite_events = upcoming_events | where_exp: "e", "e.eventbrite_id" %}
+    {% if eventbrite_events.size > 0 %}
+      <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+      <script type="text/javascript">
+        {% for event in eventbrite_events %}
+        window.EBWidgets.createWidget({
+          widgetType: 'checkout',
+          eventId: '{{ event.eventbrite_id }}',
+          modal: true,
+          modalTriggerElementId: 'eb-trigger-{{ event.eventbrite_id }}'
+        });
+        {% endfor %}
+      </script>
+    {% endif %}
     {% else %}
     <p class="center">No events are open for booking right now — check back soon, or follow us on
       <a href="{{ site.organiser.facebook }}" target="_blank" rel="noopener">Facebook</a>

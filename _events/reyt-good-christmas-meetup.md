@@ -5,7 +5,7 @@ description: >-
   A festive board game and gaming get-together with a Christmas quiz, gift
   swap and mince pies at Shaw Lane Sports Club, Barnsley.
 status: upcoming
-live: true
+live: false
 summary: >-
   A cosy festive gaming get-together with board games, a Christmas quiz,
   a gift swap and mince pies. A reyt good way to see out the year!
