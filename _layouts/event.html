@@ -103,6 +103,46 @@ layout: default
   </div>
 </section>
 
+{% if page.featured_games %}
+<!-- Featured games -->
+{% for game in page.featured_games %}
+<section class="game-feature game-feature--{{ game.theme | default: 'default' }}" aria-labelledby="game-{{ forloop.index }}">
+  <div class="container">
+    <header class="game-feature-head">
+      <p class="game-feature-eyebrow">Hosted at {{ page.name }}</p>
+      <h2 class="game-feature-title" id="game-{{ forloop.index }}">
+        {% if game.icon %}<span class="game-feature-icon" aria-hidden="true">{{ game.icon }}</span>{% endif %}
+        {{ game.name }}
+      </h2>
+      {% if game.tagline %}<p class="game-feature-tagline">{{ game.tagline }}</p>{% endif %}
+      {% if game.intro %}<p class="game-feature-intro">{{ game.intro }}</p>{% endif %}
+    </header>
+
+    <ol class="game-sessions{% if game.sessions.size == 4 %} game-sessions--pairs{% endif %}">
+      {% for s in game.sessions %}
+      <li class="game-session">
+        <span class="game-session-time">{{ s.time }}</span>
+        <span class="game-session-label">{{ s.label }}</span>
+        {% if s.description %}<p>{{ s.description }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+
+    {% if game.rules %}
+    <ul class="game-rules">
+      {% for r in game.rules %}
+      <li class="game-rule">
+        <span class="game-rule-icon" aria-hidden="true">{{ r.icon }}</span>
+        <span><strong>{{ r.name }}</strong>{% if r.detail %}<br><small>{{ r.detail }}</small>{% endif %}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>
+{% endfor %}
+{% endif %}
+
 {% if page.sessions %}
 <!-- Sessions -->
 <section class="section section-cream">

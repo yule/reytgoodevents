@@ -36,14 +36,14 @@ activities:
     name: Dungeons & Dragons
     description: >-
       Join a one-shot adventure run by an experienced game master — no
-      character or experience required, just turn up ready to roll. Advance
-      booking gives early access to reserve a place.
+      character or experience required, just turn up ready to roll. Tables
+      are limited to 4 players per session.
   - icon: 🕰
     name: Blood on the Clocktower
     description: >-
       A social deduction game of secrets, bluffing and betrayal for a table
       of townsfolk. Sessions are limited, so book in advance to reserve your
-      seat.
+      seat. Ages 14+.
   - icon: 🎨
     name: Mini Painting
     description: >-
@@ -120,6 +120,49 @@ sessions:
       - Longer strategy games
       - Organised gaming sessions
       - Relaxed social gaming
+featured_games:
+  - name: Blood on the Clocktower
+    theme: clocktower
+    icon: 🕰
+    tagline: A game of bluffs, lies and logic
+    intro: Can you uncover the truth before the time runs out?
+    sessions:
+      - time: "12:00pm – 2:00pm"
+        label: Intro Session
+        description: New to the game? Perfect place to start!
+      - time: "3:00pm – 5:00pm"
+        label: Main Session
+        description: Jump in and experience the full game.
+      - time: "6:00pm – 8:00pm"
+        label: Experienced Session
+        description: For returning players and seasoned storytellers.
+    rules:
+      - icon: 🪪
+        name: Aged 14+
+        detail: Under 18s must be with an adult
+      - icon: 👥
+        name: Minimum 5 players
+        detail: per session
+  - name: Dungeons & Dragons
+    theme: dnd
+    icon: 🐉
+    tagline: Four one-shot adventures, one epic day
+    intro: >-
+      Join an experienced game master for a one-shot adventure. No character
+      or experience needed, just turn up ready to roll.
+    sessions:
+      - time: "11:00am – 1:00pm"
+        label: Session 1
+      - time: "1:30pm – 3:30pm"
+        label: Session 2
+      - time: "4:00pm – 6:00pm"
+        label: Session 3
+      - time: "6:30pm – 8:30pm"
+        label: Session 4
+    rules:
+      - icon: 🎲
+        name: Maximum 4 players
+        detail: per session
 location_intro: >-
   Reyt Good Events are hosted at the heart of Barnsley's community. Visit us
   at Shaw Lane Sports Club for a reyt good day out filled with
