@@ -24,6 +24,11 @@ description: >-
       <a href="{{ next_event.url | relative_url }}" class="btn btn-primary">{{ next_event.name }}</a>
       <a href="{{ next_event.url | relative_url }}#location" class="btn btn-outline">Plan Your Visit</a>
     </div>
+    {% else %}
+    <div class="hero-actions">
+      <a href="#next-event" class="btn btn-primary">Next Event: Coming Soon</a>
+      <a href="{{ '/events/' | relative_url }}" class="btn btn-outline">Past Events</a>
+    </div>
     {% endif %}
   </div>
 </section>
@@ -119,6 +124,20 @@ description: >-
       </div>
     </div>
     <p class="center"><a href="{{ next_event.url | relative_url }}" class="btn btn-primary">View Event Details</a></p>
+  </div>
+</section>
+{% else %}
+<section class="section section-dark" id="next-event">
+  <div class="container">
+    <div class="section-head">
+      <p class="tagline" style="font-size:1rem; margin-bottom:0.5rem;">Our Next Event</p>
+      <h2>Coming Soon</h2>
+      <p>We're busy working on our next event — more details to come shortly! Follow us on
+        <a href="{{ site.organiser.facebook }}" target="_blank" rel="noopener">Facebook</a>
+        or <a href="{{ site.organiser.instagram }}" target="_blank" rel="noopener">Instagram</a>
+        to be the first to hear.</p>
+    </div>
+    <p class="center"><a href="{{ '/events/' | relative_url }}" class="btn btn-primary">See Past Events</a></p>
   </div>
 </section>
 {% endif %}

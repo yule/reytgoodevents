@@ -4,7 +4,7 @@ title: The Great Yorkshire Geek Meet – Reyt Good Events
 description: >-
   Board games, Dungeons & Dragons, Blood on the Clocktower, mini painting,
   traders and friendly tournaments at Shaw Lane Sports Club, Barnsley.
-status: upcoming
+status: past
 live: true
 summary: >-
   A fantastic day of board games, RPGs, tournaments, traders, painting,
@@ -20,7 +20,6 @@ map_query: "Shaw Lane Sports Club, Shaw Lane, Barnsley, S70 6HZ"
 price_adult: "£5"
 price_under12: "Free"
 booking_url: ""
-eventbrite_id: "1993777621537"
 image: /assets/images/people-playing-games.avif
 image_alt: >-
   Friends and family playing board games together at a Reyt Good Events
@@ -42,8 +41,7 @@ activities:
     name: Blood on the Clocktower
     description: >-
       A social deduction game of secrets, bluffing and betrayal for a table
-      of townsfolk. Sessions are limited, so book in advance to reserve your
-      seat. Ages 14+.
+      of townsfolk. Ages 14+.
   - icon: 🎨
     name: Mini Painting
     description: >-

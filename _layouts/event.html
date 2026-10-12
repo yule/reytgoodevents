@@ -9,10 +9,17 @@ layout: default
   <div class="container">
     <p class="tagline">{{ page.name }}</p>
     <p>{{ page.summary }}</p>
+    {% if page.status == "past" %}
+    <p><strong>This event took place on {{ page.date_display }} — thanks to everyone who came along!</strong></p>
+    <div class="hero-actions">
+      <a href="{{ '/events/' | relative_url }}" class="btn btn-primary">See All Events</a>
+    </div>
+    {% else %}
     <div class="hero-actions">
       <a href="#tickets" class="btn btn-primary">Book Tickets</a>
       <a href="#location" class="btn btn-outline">Plan Your Visit</a>
     </div>
+    {% endif %}
   </div>
 </div>
 
@@ -30,10 +37,12 @@ layout: default
       <span class="fact-label">Venue</span>
       <span class="fact-value">{{ page.venue_name }}</span>
     </div>
+    {% if page.status != "past" %}
     <div class="fact">
       <span class="fact-label">Adult Ticket</span>
       <span class="fact-value">{{ page.price_adult }} &middot; Under 12s {{ page.price_under12 }}</span>
     </div>
+    {% endif %}
   </div>
 </section>
 
@@ -169,6 +178,7 @@ layout: default
 </section>
 {% endif %}
 
+{% if page.status != "past" %}
 <!-- Tickets -->
 <section class="section" id="tickets">
   <div class="container">
@@ -215,6 +225,7 @@ layout: default
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- Location -->
 <section class="section section-cream" id="location">
@@ -242,7 +253,7 @@ layout: default
           {{ page.postcode }}
         </p>
         <div class="hero-actions" style="justify-content:flex-start; margin-top:1.5rem;">
-          <a href="#tickets" class="btn btn-primary">Book Tickets</a>
+          {% if page.status != "past" %}<a href="#tickets" class="btn btn-primary">Book Tickets</a>{% endif %}
           <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.map_query | url_encode }}" class="btn btn-bordered" target="_blank" rel="noopener">Directions</a>
         </div>
       </div>
@@ -271,7 +282,7 @@ layout: default
 </section>
 {% endif %}
 
-{% if page.top_tips %}
+{% if page.top_tips and page.status != "past" %}
 <section class="section section-cream">
   <div class="container center">
     <div class="section-head">

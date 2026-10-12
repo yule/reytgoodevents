@@ -84,6 +84,7 @@ small { font-size: 0.87em; }
 .section-head h2 { margin-bottom: 0.65rem; }
 .section-head p  { color: var(--text-muted); font-size: 1.05rem; }
 .section-dark .section-head p { color: var(--cream-dark); }
+.section-dark .section-head p a { color: var(--mustard); text-decoration: underline; }
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .btn {
